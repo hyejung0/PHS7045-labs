@@ -3,6 +3,8 @@ title: "Lab 03 - Functions and data.table"
 format:
   html:
     embed-resources: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Learning goals
@@ -90,7 +92,31 @@ Once you are done setting up the project, you can now start working on the lab.
 Write a function using the ellipsis argument (`...`) with the goal of (i) retrieving the list of arguments passed to it, (ii) printing information about them using `str()`, and (iii) printing the environment where they belong and the address of the object in memory using `data.table::address()`.
 
 ```{r}
+test_function<-function(...){
+  val<-list(...) #retrieving the list of arguments passed to it
+  lapply(val, str) #printing information about them using `str()`
+  
 
+  
+  #Can't print environment of objects because environment is for a function
+  lapply(val, environment)
+
+  #print out address
+  lapply(val, data.table::address)
+  
+  # #how to let the function doesn't return anything?
+  # invisible()
+  
+  # lapply(val, \(x){
+  #   print(data.table::address(x))}
+  #   )
+
+  
+
+}
+
+
+test_function(x=c(1,2,3), y=c("blue","red"))
 ```
 
 Knit the document, commit your changes, and push them to GitHub.
