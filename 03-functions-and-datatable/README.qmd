@@ -1,10 +1,11 @@
 ---
 title: "Lab 03 - Functions and data.table"
-format:
-  html:
-    embed-resources: true
-editor_options: 
-  chunk_output_type: console
+# format:
+#   html:
+#     embed-resources: true
+# editor_options: 
+#   chunk_output_type: console
+format: gfm
 ---
 
 # Learning goals
@@ -122,11 +123,15 @@ test_function(x=c(1,2,3), y=c("blue","red"))
 Knit the document, commit your changes, and push them to GitHub.
 
 
-## Question 2: **Lady evaluation**
+## Question 2: **Lazy evaluation**
 
 A concept we did not review was lazy evaluation. Write a function with two arguments (`a` and `b`)  that only uses one of them as an integer, and then call the function passing the following arguments `(1, this_stuff)`
 
 ```{r}
+#lazy evaluation => R won't evaluate unless it needs it.
+
+func<-function(a,b){print(a)}
+func(1,this_value_doesnt_exists) #works b/c R does lazy evaluation.
 
 ```
 
