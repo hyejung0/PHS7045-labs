@@ -143,7 +143,12 @@ Knit the document, commit your changes, and push them to GitHub.
 Write a function that fits a linear regression model and saves the result to the global environment using the `assign()` function. The name of the output must be passed as a symbol using lazy evaluation.
 
 ```{r}
+lin.func<-function(x,y){
+  assign(x="Global_linear_fit",value=lm(y~x), envir = .GlobalEnv) #fit linear model using input x and y, and save the variable as "Global_linear_fit" in the global environment.
+}
 
+test.x<-rnorm(10, mean=10)
+lin.func(x=test.x, y=rpois(10, lambda = 2) + test.x + rnorm(10))
 ```
 
 Knit the document, commit your changes, and push them to GitHub.
