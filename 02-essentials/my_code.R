@@ -55,12 +55,12 @@ one_cycle<-function(S, N, Y, count.patients, alloc.prob=NULL, trt.arm=NULL){
   #trt.arm = a vector of treatment arm allocation for each sample. If null, we are doing RAR. If not null, it must be of length S, and have values of 0,1,2, or 3. It is meant for the initial round of RAR. 
   
   
-  if(!is.null(trt.arm) & (length(trt.arm)!=S)){
-    return(print("The number of treatment arms should be same as the sample size. That is, length(trt.arm)==S should hold."))
+  if(!is.null(trt.arm) & (length(trt.arm)!=S)){ #If we manually gave treatment assignment (trt.arm) but the sample number (S) is not equal to the treatment assignment quantity, then we stop.
+    return(stop("The number of treatment arms should be same as the sample size. That is, length(trt.arm)==S should hold."))
   }
   
   if(is.null(trt.arm) & is.null(alloc.prob)){ #If we are cycling through RAR (not initial round) but didn't get the allocaiton probability,
-    return(print("allocation probability should be given for each arm."))
+    return(stop("allocation probability should be given for each arm."))
   }
   
   if(is.null(trt.arm)){
@@ -96,7 +96,7 @@ one_cycle<-function(S, N, Y, count.patients, alloc.prob=NULL, trt.arm=NULL){
   alloc.prob<-c(sum(success.arms==0),sum(success.arms==1),sum(success.arms==2),sum(success.arms==3))/1000 #for arms 1,2, and 3, it's jut proportion that the posterior samples were the maximum. 
   #allocation profitability of control arm:
   n_t<-sum(count.patients[c("1","2","3")])
-  nn_0<-count.patients["0"]
+  n_0<-count.patients["0"]
   alloc.prob[1]<-min(sum(alloc.prob[2:4]*((n_t+1)/(n_0+1))), max(alloc.prob[2:4]))
   
   
@@ -154,7 +154,7 @@ RAR<-function(N, S=40){
 
 
 #test my code
-set.seed(1923)
+set.seed(101)
 check.RAR<-RAR(N=228)
 check.RAR$max.prob.trt.arm #The probability that the best treatment arm is better than control.
 check.RAR$count.patients #The number of patients assigned to each treatment arm.
