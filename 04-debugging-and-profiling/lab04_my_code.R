@@ -61,8 +61,11 @@ one_cycle<-function(S, N, Y, posterior.sample.size=1000,count.patients, alloc.pr
   #calculate allocation probability
   success.arms<-apply(post.samples,1,function(x){which.max(x)}) #count number of times each arm was the maximum
   success.arms<- success.arms-1 #our arm count starts at 0=control, so we subtract by 1
-  
-  alloc.prob<-c(sum(success.arms==0),sum(success.arms==1),sum(success.arms==2),sum(success.arms==3))/1000 #for arms 1,2, and 3, it's jut proportion that the posterior samples were the maximum. 
+
+  alloc.prob<-c(sum(success.arms==0),
+                sum(success.arms==1),
+                sum(success.arms==2),
+                sum(success.arms==3))/1000 #for arms 1,2, and 3, it's jut proportion that the posterior samples were the maximum. 
   #allocation profitability of control arm:
   n_t<-sum(count.patients[c("1","2","3")])
   n_0<-count.patients["0"]
