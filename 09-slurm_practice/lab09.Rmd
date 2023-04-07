@@ -1,0 +1,21 @@
+---
+title: "lab09"
+author: "Hyejung Lee"
+date: "4/6/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Computer Level :
+
+1. Computer = Nodes
+2. CPU
+3. cores
+4. SIMD threads
+
+1. SIMD instruction : use one core but have multiple threads. Core has multiple threads, it depends on the computer. But using SIMD threads in c++ programming. 
+
+If I am using for loop, and it takes long, use OpenMP (use Rcpp to use for loop). 
