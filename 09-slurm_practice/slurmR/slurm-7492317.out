@@ -1,0 +1,9 @@
+Loading required package: parallel
+slurmR default option for `tmp_path` (used to store auxiliar files) set to:
+  /uufs/chpc.utah.edu/common/home/u1317537/PHS7045/labs/09/slurmR
+You can change this and checkout other slurmR options using: ?opts_slurmR, or you could just type "opts_slurmR" on the terminal.
+Submitting job...Submitted batch job 7492319
+The job is running, waiting for the nodenames. Remaining wait time: 297 (s).
+Success! nodenames collected (notch081). Creating the cluster object...
+Warning: Permanently added 'notch081' (ECDSA) to the list of known hosts.
+Pi: 3.1417048

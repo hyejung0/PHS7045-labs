@@ -1,0 +1,8 @@
+Loading required package: parallel
+slurmR default option for `tmp_path` (used to store auxiliar files) set to:
+  /uufs/chpc.utah.edu/common/home/u1317537/PHS7045/labs/09/slurmR
+You can change this and checkout other slurmR options using: ?opts_slurmR, or you could just type "opts_slurmR" on the terminal.
+Error: unexpected symbol in:
+"  tmp_path = "/scratch/local/u1317537/" # This is where all temp files will be exported
+  sbatch_opt"
+Execution halted

@@ -1,0 +1,11 @@
+#!/bin/sh
+#SBATCH --ntasks=4
+#SBATCH --output=/uufs/chpc.utah.edu/common/home/u1317537/PHS7045/labs/09/slurmR/slurmr-job-330ab255d5e4fd.out
+#SBATCH --account=notchpeak-shared-short
+#SBATCH --partition=notchpeak-shared-short
+#SBATCH --time=01:00:00
+#SBATCH --job-name=slurmr-job-330ab27b0fd71d
+
+echo ==start-hostnames==
+srun hostname
+sleep infinity
